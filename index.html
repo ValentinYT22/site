@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Music</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1DB954, #121212);
+            background-image: url('Selena.jpg');
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            color: #1DB954;
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #b3b3b3;
+            text-align: center;
+            padding: 15px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #1DB954;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        #music-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .song-card {
+            background-color: rgba(50, 50, 50, 0.9);
+            background-image: url('eu2.jpg');
+            background-size: cover;
+            border-radius: 25px;
+            padding: 25px;
+            width: 250px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Stiluri pentru imaginea piesei - efect de vinil */
+        .song-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%; /* Face imaginea rotundă */
+            margin: 0 auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Efect de umbră pentru vinil */
+            border: 5px solid #1DB954; /* Adaugă o margine verde pentru vinil */
+            animation: none;
+        }
+
+        /* Animație pentru rotirea vinilului */
+        @keyframes rotateVinyl {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .song-card img.rotating {
+            animation: rotateVinyl 5s linear infinite;
+        }
+
+        .song-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Adam Music</h1>
+    </header>
+    <main>
+        <section id="music-list">
+       <!-- Song 1 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Germanusu" id="image1">
+    <div class="song-title">Germanusu</div>
+    <button onclick="playAudio('audio1', 'image1')">Play</button>
+    <audio id="audio1" src="Germanusu.mp3"></audio>
+</div>
+
+<!-- Song 2 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Fara reguli" id="image2">
+    <div class="song-title">Fara reguli</div>
+    <button onclick="playAudio('audio2', 'image2')">Play</button>
+    <audio id="audio2" src="Fara reguli.mp3"></audio>
+</div>
+
+<!-- Song 3 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="CulorideGri" id="image3">
+    <div class="song-title">CulorideGri</div>
+    <button onclick="playAudio('audio3', 'image3')">Play</button>
+    <audio id="audio3" src="CulorideGri.mp3"></audio>
+</div>
+
+<!-- Song 4 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Dincolo de Linia Fină" id="image4">
+    <div class="song-title">Dincolo de Linia Fină</div>
+    <button onclick="playAudio('audio4', 'image4')">Play</button>
+    <audio id="audio4" src="Dincolo de Linia Fină.mp3"></audio>
+</div>
+
+<!-- Song 5 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Ecouri din Tăcere" id="image5">
+    <div class="song-title">Ecouri din Tăcere</div>
+    <button onclick="playAudio('audio5', 'image5')">Play</button>
+    <audio id="audio5" src="Ecouri din Tăcere oficial.mp3"></audio>
+</div>
+
+<!-- Song 6 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Azi, nu mâine" id="image6">
+    <div class="song-title">Azi, nu mâine</div>
+    <button onclick="playAudio('audio6', 'image6')">Play</button>
+    <audio id="audio6" src="Azi, nu mâine.mp3"></audio>
+</div>
+
+<!-- Song 7 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Eu" id="image7">
+    <div class="song-title">Eu</div>
+    <button onclick="playAudio('audio7', 'image7')">Play</button>
+    <audio id="audio7" src="Eu.mp3"></audio>
+</div>
+
+<!-- Song 8 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Pe Marginea Haosului" id="image8">
+    <div class="song-title">Pe Marginea Haosului</div>
+    <button onclick="playAudio('audio8', 'image8')">Play</button>
+    <audio id="audio8" src="Pe Marginea Haosului.mp3"></audio>
+</div>
+
+<!-- Song 9 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Fara Harta" id="image9">
+    <div class="song-title">Fara Harta</div>
+    <button onclick="playAudio('audio9', 'image9')">Play</button>
+    <audio id="audio9" src="Fara Harta.mp3"></audio>
+</div>
+
+<!-- Song 10 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Schimbare de perspectivă" id="image10">
+    <div class="song-title">Schimbare de perspectivă</div>
+    <button onclick="playAudio('audio10', 'image10')">Play</button>
+    <audio id="audio10" src="Schimbare de perspectivă v1.mp3"></audio>
+</div>
+
+<!-- Song 11 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Stele Pe Cer" id="image11">
+    <div class="song-title">Stele Pe Cer</div>
+    <button onclick="playAudio('audio11', 'image11')">Play</button>
+    <audio id="audio11" src="Stele Pe Cer 2000.mp3"></audio>
+</div>
+
+<!-- Song 12 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Vise de Cristal" id="image12">
+    <div class="song-title">Vise de Cristal</div>
+    <button onclick="playAudio('audio12', 'image12')">Play</button>
+    <audio id="audio12" src="Vise de Cristal.mp3"></audio>
+</div>
+
+<!-- Song 13 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Sub Stelele Noastre" id="image13">
+    <div class="song-title">Sub Stelele Noastre</div>
+    <button onclick="playAudio('audio13', 'image13')">Play</button>
+    <audio id="audio13" src="Sub Stelele Noastre 2000.mp3"></audio>
+</div>
+
+<!-- Song 14 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Umdre si lumina" id="image14">
+    <div class="song-title">Umdre si lumina</div>
+    <button onclick="playAudio('audio14', 'image14')">Play</button>
+    <audio id="audio14" src="Umdre si lumina v3.mp3"></audio>
+</div>
+
+<!-- Song 15 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Sotto lo Stesso Cielo" id="image15">
+    <div class="song-title">Sotto lo Stesso Cielo</div>
+    <button onclick="playAudio('audio15', 'image15')">Play</button>
+    <audio id="audio15" src="Sotto lo Stesso Cielo.mp3"></audio>
+</div>
+
+<!-- Song 16 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Adevăr pe mute" id="image16">
+    <div class="song-title">Adevăr pe mute</div>
+    <button onclick="playAudio('audio16', 'image16')">Play</button>
+    <audio id="audio16" src="Adevăr pe mute.mp3"></audio>
+</div>
+
+<!-- Song 17 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Alegeri și Risc" id="image17">
+    <div class="song-title">Alegeri și Risc</div>
+    <button onclick="playAudio('audio17', 'image17')">Play</button>
+    <audio id="audio17" src="Alegeri și Risc.mp3"></audio>
+</div>
+
+<!-- Song 18 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="E O Stea" id="image18">
+    <div class="song-title">E O Stea</div>
+    <button onclick="playAudio('audio18', 'image18')">Play</button>
+    <audio id="audio18" src="E O Stea.mp3"></audio>
+</div>
+
+<!-- Song 19 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Inima Pustie" id="image19">
+    <div class="song-title">Inima Pustie</div>
+    <button onclick="playAudio('audio19', 'image19')">Play</button>
+    <audio id="audio19" src="Inima Pustie.mp3"></audio>
+</div>
+
+<!-- Song 20 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Steaua Mea" id="image20">
+    <div class="song-title">Steaua Mea</div>
+    <button onclick="playAudio('audio20', 'image20')">Play</button>
+    <audio id="audio20" src="Steaua Mea.mp3"></audio>
+</div>
+<!-- Song 21 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Stele pe cer2" id="image21">
+    <div class="song-title">Stele pe cer2</div>
+    <button onclick="playAudio('audio21', 'image21')">Play</button>
+    <audio id="audio21" src="Stele pe cer.mp3"></audio>
+</div>
+
+<!-- Song 22 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Suflet dezarmat" id="image22">
+    <div class="song-title">Suflet dezarmat</div>
+    <button onclick="playAudio('audio22', 'image22')">Play</button>
+    <audio id="audio22" src="Suflet dezarmat.mp3"></audio>
+</div>
+
+<!-- Song 23 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Real în 4K" id="image23">
+    <div class="song-title">Real în 4K</div>
+    <button onclick="playAudio('audio23', 'image23')">Play</button>
+    <audio id="audio23" src="Real în 4K.mp3"></audio>
+</div>
+
+<!-- Song 24 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Pe cont propriu" id="image24">
+    <div class="song-title">Pe cont propriu</div>
+    <button onclick="playAudio('audio24', 'image24')">Play</button>
+    <audio id="audio24" src="Pe cont propriu v2.mp3"></audio>
+</div>
+
+<!-- Song 25 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Nedrept" id="image25">
+    <div class="song-title">Nedrept</div>
+    <button onclick="playAudio('audio25', 'image25')">Play</button>
+    <audio id="audio25" src="Nedrept.mp3"></audio>
+</div>
+
+<!-- Song 26 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Multe" id="image26">
+    <div class="song-title">Multe</div>
+    <button onclick="playAudio('audio26', 'image26')">Play</button>
+    <audio id="audio26" src="Multe.mp3"></audio>
+</div>
+
+<!-- Song 27 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Internet" id="image27">
+    <div class="song-title">Internet</div>
+    <button onclick="playAudio('audio27', 'image27')">Play</button>
+    <audio id="audio27" src="IDK.mp3"></audio>
+</div>
+
+<!-- Song 28 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Contra curentului" id="image28">
+    <div class="song-title">Contra curentului</div>
+    <button onclick="playAudio('audio28', 'image28')">Play</button>
+    <audio id="audio28" src="Contra curentului.mp3"></audio>
+</div>
+
+<!-- Song 29 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Contraste" id="image29">
+    <div class="song-title">Contraste</div>
+    <button onclick="playAudio('audio29', 'image29')">Play</button>
+    <audio id="audio29" src="Contraste.mp3"></audio>
+</div>
+
+<!-- Song 30 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Iubire sau doar chin" id="image30">
+    <div class="song-title">Iubire sau doar chin</div>
+    <button onclick="playAudio('audio30', 'image30')">Play</button>
+    <audio id="audio30" src="Iubire sau doar chin.mp3"></audio>
+</div>
+<!-- Song 31 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Simt vibe-ul rau" id="image31">
+    <div class="song-title">Simt vibe-ul rau</div>
+    <button onclick="playAudio('audio31', 'image31')">Play</button>
+    <audio id="audio31" src="Simt vibe-ul rau.mp3"></audio>
+</div>
+
+<!-- Song 32 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Mișcă talia" id="image32">
+    <div class="song-title">Mișcă talia</div>
+    <button onclick="playAudio('audio32', 'image32')">Play</button>
+    <audio id="audio32" src="Mișcă talia.mp3"></audio>
+</div>
+
+<!-- Song 33 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Între oglinzi" id="image33">
+    <div class="song-title">Între oglinzi</div>
+    <button onclick="playAudio('audio33', 'image33')">Play</button>
+    <audio id="audio33" src="Între oglinzi.mp3"></audio>
+</div>
+
+<!-- Song 34 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Valentin" id="image34">
+    <div class="song-title">Valentin</div>
+    <button onclick="playAudio('audio34', 'image34')">Play</button>
+    <audio id="audio34" src="Valentin.mp3"></audio>
+</div>
+
+<!-- Song 35 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Iubirea mea" id="image35">
+    <div class="song-title">Iubirea mea</div>
+    <button onclick="playAudio('audio35', 'image35')">Play</button>
+    <audio id="audio35" src="Iubirea mea.mp3"></audio>
+</div>
+
+<!-- Song 36 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Eu Contra Lumii oficial" id="image36">
+    <div class="song-title">Eu Contra Lumii</div>
+    <button onclick="playAudio('audio36', 'image36')">Play</button>
+    <audio id="audio36" src="Eu Contra Lumii oficial.mp3"></audio>
+</div>
+
+<!-- Song 37 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Mai Mult" id="image37">
+    <div class="song-title">Mai Mult</div>
+    <button onclick="playAudio('audio37', 'image37')">Play</button>
+    <audio id="audio37" src="Mai Mult.mp3"></audio>
+</div>
+
+<!-- Song 38 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Dragoste pentru Valentin" id="image38">
+    <div class="song-title">Dragoste pentru Valentin</div>
+    <button onclick="playAudio('audio38', 'image38')">Play</button>
+    <audio id="audio38" src="Dragoste pentru Valentin.mp3"></audio>
+</div>
+
+<!-- Song 39 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Dragostea ca Otravă" id="image39">
+    <div class="song-title">Dragostea ca Otravă</div>
+    <button onclick="playAudio('audio39', 'image39')">Play</button>
+    <audio id="audio39" src="Dragostea ca Otravă.mp3"></audio>
+</div>
+
+<!-- Song 40 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Dualitate" id="image40">
+    <div class="song-title">Dualitate</div>
+    <button onclick="playAudio('audio40', 'image40')">Play</button>
+    <audio id="audio40" src="Dualitate.mp3"></audio>
+</div>
+
+<!-- Song 41 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Iluzii Sparte" id="image41">
+    <div class="song-title">Iluzii Sparte</div>
+    <button onclick="playAudio('audio41', 'image41')">Play</button>
+    <audio id="audio41" src="Iluzii Sparte.mp3"></audio>
+</div>
+
+<!-- Song 42 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="În Oglindă" id="image42">
+    <div class="song-title">În Oglindă</div>
+    <button onclick="playAudio('audio42', 'image42')">Play</button>
+    <audio id="audio42" src="In oglindaF.mp3"></audio>
+</div>
+            <!-- Song 43 -->
+<div class="song-card">
+    <img src="Euyt.jpg" alt="Pe buze tu" id="image43">
+    <div class="song-title">Pe buze tu</div>
+    <button onclick="playAudio('audio43', 'image43')">Play</button>
+    <audio id="audio43" src="Pe buze tu.mp3"></audio>
+</div>
+
+
+        </section>
+             </section> 
+        <section id="youtube-videos">
+
+    <h2>Videoclipuri YouTube</h2>
+
+
+
+    <!-- Playlist cu imagine de fundal -->
+
+    <div class="video-playlist">
+
+        <div class="playlist-header">
+
+        </div>
+
+
+
+        <ul class="video-list">
+
+            <!-- Videoclip 1 -->
+
+            <li class="video-item">
+
+                <h3>Imparatia Gheti</h3>
+
+                <div class="thumbnail">
+
+                    <iframe src="https://www.youtube.com/embed/csWXCLusRkI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                </div>
+
+            </li>
+
+
+
+            <!-- Videoclip 2 -->
+
+            <li class="video-item">
+
+                <h3>Ce s-a intamplat cu noi</h3>
+
+                <div class="thumbnail">
+
+                    <iframe src="https://www.youtube.com/embed/cBZ0vtGBs8g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                </div>
+
+            </li>
+
+
+
+            <!-- Videoclip 3 -->
+
+            <li class="video-item">
+
+                <h3>Iubirea Toxica</h3>
+
+                <div class="thumbnail">
+
+                    <iframe src="https://www.youtube.com/embed/mzgZI19Oj_A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                </div>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+      </section>
+
+      <section id="Iubirea Toxica">
+
+       <h2></h2>
+     </section>
+    </main> 
+
+    <footer>
+        <p>&copy; 2025 Adam Music. Toate drepturile rezervate. <a href="https://www.youtube.com/@Adamofficial1253" target="_blank">YouTube</a></p>
+    </footer>
+
+    <script>
+        function playAudio(audioId, imageId) {
+            const audio = document.getElementById(audioId);
+            const image = document.getElementById(imageId);
+
+            if (audio.paused) {
+                audio.play();
+                image.classList.add("rotating"); // Începe animația de rotație
+            } else {
+                audio.pause();
+                image.classList.remove("rotating"); // Oprește animația de rotație
+            }
+
+            // Resetează animația când piesa se termină
+            audio.addEventListener('ended', () => {
+                image.classList.remove("rotating"); // Oprește rotația la final
+            });
+        }
+    </script>
+</body>
+</html>

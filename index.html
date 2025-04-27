@@ -355,7 +355,53 @@ footer a:hover {
     </div>
 
 </li>
+ <!-- Videoclip 7-->
+<li class="video-item">
 
+    <h3>Iubire cu otrava</h3>
+
+    <div class="thumbnail">
+
+        <iframe src="https://www.youtube.com/embed/iAPKTCGDvbo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </div>
+
+</li>
+            <!-- Videoclip 8-->
+            <li class="video-item">
+    <h3>Andreea top</h3>
+    <div class="thumbnail">
+        <iframe src="https://www.youtube.com/embed/OU4Gw3uAGfo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</li>
+            <!-- Videoclip 9-->
+            <li class="video-item">
+    <h3>Antidot</h3>
+    <div class="thumbnail">
+        <iframe src="https://www.youtube.com/embed/qfzWXK9NQ0c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</li>
+            <!-- Videoclip 10-->
+            <li class="video-item">
+    <h3>Totul este toxic</h3>
+    <div class="thumbnail">
+        <iframe src="https://www.youtube.com/embed/aCK-hOnVy5I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</li>
+            <!-- Videoclip 11-->
+            <li class="video-item">
+    <h3>Iadul tau </h3>
+    <div class="thumbnail">
+        <iframe src="https://www.youtube.com/embed/bzCbWfUifwc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</li>
+            <!-- Videoclip 12-->
+            <li class="video-item">
+    <h3>Toxic love</h3>
+    <div class="thumbnail">
+        <iframe src="https://www.youtube.com/embed/PeJf27TeoGY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>  
+</li>
         </ul>
 
     </div>
@@ -429,9 +475,14 @@ const youtubeVideos = [
     { title: 'Iubirea Toxica', embedId: 'mzgZI19Oj_A' },
     { title: 'Umbre Pe Beat', embedId: 'p97z3bDusOY' },
     { title: 'Baby,tu esti toxica', embedId: 'v16JuylUbxw' },
-    { title: 'Din Mii', embedId: 'o8tgRX2xSZs' }
-];
-
+    { title: 'Din Mii', embedId: 'o8tgRX2xSZs' },
+    { title: 'Iubire cu otrava', embedId: 'iAPKTCGDvbo' },
+    { title: 'Andreea top', embedId: 'OU4Gw3uAGfo' },
+    { title: 'Antidot', embedId: 'qfzWXK9NQ0c' },
+    { title: 'Totul este toxic', embedId: 'aCK-hOnVy5I' },
+    { title: 'Iadul tau', embedId: 'bzCbWfUifwc' },
+    { title: 'Toxic love', embedId: 'PeJf27TeoGY' }
+ ];
 let currentlyPlaying = null;
 let currentVolume = 1.0;
 
@@ -508,12 +559,6 @@ window.updateProgress = function(audioId) {
 window.adjustVolume = function(audioId, value) {
     const audio = document.getElementById(audioId);
     audio.volume = value;
-    currentVolume = value;
-    
-    // Update all other volume sliders to maintain consistency
-    document.querySelectorAll('.volume-slider').forEach(slider => {
-        slider.value = value;
-    });
 };
 
 window.playAudio = function(audioId, imageId) {
@@ -542,10 +587,19 @@ window.playAudio = function(audioId, imageId) {
         currentlyPlaying = null;
     }
 
+    // Adaugă evenimentul pentru redarea următoarei piese
     audio.addEventListener('ended', () => {
         image.classList.remove("rotating");
         button.textContent = "Play";
         currentlyPlaying = null;
+
+        // Găsește următoarea piesă
+        const currentIndex = songs.findIndex(song => song.id === audioId);
+        const nextIndex = (currentIndex + 1) % songs.length; // Trecere circulară
+        const nextSong = songs[nextIndex];
+
+        // Redă următoarea piesă
+        playAudio(nextSong.id, `image${nextSong.id.replace('audio', '')}`);
     });
 };
 

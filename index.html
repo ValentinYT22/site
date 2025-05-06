@@ -245,18 +245,45 @@ footer a:hover {
     color: #169c46;
     text-decoration: underline;
 }
+#music-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px; /* Increased gap for more distance */
+    justify-content: center;
+    max-width: 1200px;
+    margin-bottom: 40px;
+}
     </style>
 </head>
 <body>
     <header>
         <h1>Adam Music</h1>
+        <div style="position: absolute; top: 20px; right: 30px;">
+            <input type="text" id="search-bar" placeholder="Caută..." style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
+        </div>
+        <script>
+            document.getElementById('search-bar').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            const songCards = document.querySelectorAll('.song-card');
+            const videoItems = document.querySelectorAll('.video-item');
+
+            songCards.forEach(card => {
+                const title = card.querySelector('.song-title').textContent.toLowerCase();
+                card.style.display = title.includes(query) ? '' : 'none';
+            });
+
+            videoItems.forEach(item => {
+                const title = item.querySelector('h3').textContent.toLowerCase();
+                item.style.display = title.includes(query) ? '' : 'none';
+            });
+            });
+        </script>
     </header>
     <main>
         <section id="music-list">
             <!-- Song cards will be dynamically loaded here -->
         </section>
            <section id="youtube-videos">
-
     <h2>Videoclipuri YouTube</h2>
 
 
@@ -633,6 +660,7 @@ document.addEventListener('DOMContentLoaded', () => {
     musicList.innerHTML = songs.map(createSongCard).join('');
     videoList.innerHTML = youtubeVideos.map(createYoutubeVideo).join('');
 });
+
     </script>
 
 
